@@ -5,5 +5,3 @@ Please run setup.py to fully set up the requirements for the projects before sta
 Current Price uses BetterSoup4 to get market data from CNBC and format accordingly.
 
 Main calls upon current price in a thread and updates to be compared to other values.
-
-MsgSnd is used as a method to send messages to the OneSignal Client.
