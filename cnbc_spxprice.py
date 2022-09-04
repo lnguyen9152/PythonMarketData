@@ -2,10 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 
 url = "https://www.cnbc.com/quotes/.SPX"
-
-result = requests.get(url)
-getWebsite = BeautifulSoup(result.text, "html.parser")
-
-currentPrice = getWebsite.find_all(class_="QuoteStrip-lastPrice")
+getWebsite = BeautifulSoup(requests.get(url).text, "html.parser")
+currentPrice = getWebsite.find(class_="QuoteStrip-lastPrice").get_text().replace(',', '')
 
 print(currentPrice)
