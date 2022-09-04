@@ -12,8 +12,6 @@ subprocess.check_call([sys.executable, '-m', 'pip', 'install',
 'beautifulsoup4'])
 subprocess.check_call([sys.executable, '-m', 'pip', 'install',
 'onesignal-sdk'])
-subprocess.check_call([sys.executable, '-m', 'pip', 'install',
-'yfinance'])
 
 # process output with an API in the subprocess module:
 reqs = subprocess.check_output([sys.executable, '-m', 'pip',

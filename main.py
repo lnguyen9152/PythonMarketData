@@ -10,18 +10,27 @@ q = queue.Queue()
 def getPrice():
     while True:
         q.put(currentprice.quote().getQuote())
-
 def send(arg):
     try:
         response = client.send_notification(arg)
     except OneSignalHTTPError as e:
         print("Error in Text")
+def currentStatus():
+    return status
+def currentSentiment():
+    if :
+        sent = "l"
+    elif :
+        sent = "s"
+    else :
+        sent = "flat"
+    return sent
 
-def makeMsg(sent, stat):
+def makeMsg(stat, sent):
     price = currentprice.quote().getQuote()
-    if(sent == "l"):
+    if(sent == "l" ):
         head = "Long Signal"
-        cont = "Long Signal @ " + price
+        cont = "Buy to Open @ " + price
     else:
         head = "Short Signal"
         cont = "Short Signal @ " + price
@@ -37,8 +46,8 @@ def makeMsg(sent, stat):
 priceThread = threading.Thread(target = getPrice)
 priceThread.start()
 
+send(makeMsg(currentStatus(), currentSentiment()))
 
-send(makeMsg("l", 0))
 while True:
     print(q.get())
     
